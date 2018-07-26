@@ -52,6 +52,8 @@ namespace ProgramDama2
                     policko.Obraz = picture;
                     HraciPole[i, z] = policko;
                 }
+            this.LabelHrac.Text = "Hraje hrac Bílý" ;
+            this.LabelHrac.Tag = 0;
         }
 
         // procedura pouzita v GenerujPlocho , slouzi jen pro to aby vygenerovala plochu na zacatku hry,
@@ -88,7 +90,18 @@ namespace ProgramDama2
         }
 
 
+        private void HracSitovy_Click(object sender, EventArgs e)
+        {
+            EchoClient.Hlavni();
+        }
 
+        private void HracLokalni_Click(object sender, EventArgs e)
+        {
+            var server = new EchoServer();
+            // sem zadat IP pokud je hrac lokalni
+            System.Net.IPAddress ipaddress = System.Net.IPAddress.Parse("192.168.1.133");
+            server.StartUp(ipaddress, 33223);
+        }
     }
 
 
@@ -101,6 +114,11 @@ namespace ProgramDama2
         public bool JeKamen;
         public int Barva; // 0-bily , 1-Cerny
         public bool Oznacena;
+    }
+
+    public class Hrac
+    {
+        int TahneHrac;  // 0-byli , 1-cerny
     }
 
     class EchoServer

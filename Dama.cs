@@ -55,7 +55,9 @@ namespace DamaDavi
             for (int i = 0; i < 8; i++)
                 for (int z = 0; z < 8; z++)
                 {
-                    var figurka = new Figurka[i,z];
+                    var figurka = new FigurkaKamen[i,z];
+                    //figurka[i, z].Radek(i);
+                    //figurka[i, z].set = i; 
                     // policko.Barva = ((i + z) % 2);  // 0-bily , 1-Cerny
                     // if (policko.Barva == 1 & i < 3) picture.Image = global::ProgramDama2.Properties.Resources.tmavykamen;
                     if (((i + z) % 2)==1 & i<3)
